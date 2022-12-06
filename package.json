@@ -1,0 +1,21 @@
+{
+  "name": "sql-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "init": "npx sequelize db:migrate && npx sequelize db:seed:all"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sequelize": "^6.26.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "mysql2": "^2.3.3",
+    "sequelize-cli": "^6.5.2"
+  }
+}
