@@ -15,11 +15,13 @@ module.exports = async function getCategoryRestaurantsV1 (categoryId) {
     const categories = result[0]
     const restaurants = result[1]
 
-    const data = categories.filter(category => category.id === categoryId)
-      .map(category => {
-        const result = { category: category.toJSON(), restaurantCount: restaurants.filter(restaurant => restaurant.categoryId === category.id).length }
-        return result
-      })
+    const target = categories.find(category => category.id === categoryId)
+    const data = {}
+
+    if (target) {
+      data.category = target.toJSON()
+      data.restaurantCount = restaurants.filter(restaurant => restaurant.categoryId === target.id).length
+    }
 
     const hrend = process.hrtime(hrstart)
     console.log('# V1 timer:', `${hrend[0]}s${hrend[1] / 1000000}ms`)
